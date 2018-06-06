@@ -1,0 +1,128 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="adminTeam.aspx.cs" Inherits="admin_adminteam" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>NBA</title>
+    <link href="../style.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .auto-style1 {
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table border="0" cellpadding="0" cellspacing="0" width="640" align="center" style="height: 293px">
+            <tr>
+                <td style="height: 60px" colspan="2">
+                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="640" style="height: 89px">
+                        <tr>
+                            <td>
+                                <img alt="" border="0" name="newsCenter_r2_c1" src="../img/nba-icon.png" style="width: 50px; height: 80px; margin-top: 0px;" /></td>
+                            <td>
+                                <table align="left" border="0" cellpadding="0" cellspacing="0" style="width: 600px">
+                                    <tr>
+                                        <td align="right" background="../images/newsCenter_r2_c2.jpg" class="nav" style="height: 45px"
+                                            valign="bottom" width="600">
+                                            <asp:Button ID="btnLogout" runat="server" onclick="btnLogout_Click" 
+                                                Text="注销退出" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr style="font-size: 10pt; color: #000000" >
+                  <td valign="top" align="left" background="../images/newsCenter_r4_c1.jpg" width="15%" >
+                    <asp:TreeView ID="TreeView1" runat="server">
+                        <Nodes>
+                            <asp:TreeNode Text="后台管理" Value="后台管理">
+                                <asp:TreeNode NavigateUrl="adminIndex.aspx" Text="管理首页" Value="管理首页">
+                                </asp:TreeNode>
+                                <asp:TreeNode NavigateUrl="adminPwd.aspx" Text="修改密码" Value="修改密码">
+                                </asp:TreeNode>
+                                <asp:TreeNode NavigateUrl="addadmin.aspx" Text="增加管理员" Value="增加管理员">
+                                </asp:TreeNode>
+                            </asp:TreeNode>
+                            <asp:TreeNode Text="数据管理" Value="数据管理">
+                                <asp:TreeNode NavigateUrl="adminTeam.aspx" Text="球队管理" Value="球队管理">
+                                </asp:TreeNode>
+                                <asp:TreeNode NavigateUrl="adminPlayer.aspx" Text="球员管理" Value="球员管理">
+                                </asp:TreeNode>
+                                <asp:TreeNode NavigateUrl="adminGame.aspx" Text="赛程管理" Value="赛程管理">
+                                </asp:TreeNode>
+                                <asp:TreeNode NavigateUrl="adminData.aspx" Text="比赛数据" Value="比赛数据">
+                                </asp:TreeNode>
+                                <asp:TreeNode NavigateUrl="adminHonour.aspx" Text="荣誉管理" Value="荣誉管理">
+                                </asp:TreeNode>
+                            </asp:TreeNode>
+                        </Nodes>
+                    </asp:TreeView>
+                </td>
+                <td align="center">
+                    <table class="style1">
+                        <tr>
+                            <td class="auto-style1" style="text-align: right">
+                                队名：</td>
+                            <td style="text-align: left" class="auto-style1">
+                                <asp:TextBox ID="teamname" 
+                        runat="server" MaxLength="20" Width="150px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="teamname" ErrorMessage="请填写队名！"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2">
+                                球馆</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="arena" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2">
+                                类型</td>
+                            <td style="text-align: left">
+                                <asp:DropDownList ID="type" runat="server">
+                                    <asp:ListItem Value="1">东部</asp:ListItem>
+                                    <asp:ListItem Value="2">西部</asp:ListItem>
+                                    <asp:ListItem Value="3">其它</asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2">
+                                教练</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="coach" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2">
+                                进入联盟年份</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="addyear" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2">
+                                &nbsp;</td>
+                            <td style="text-align: left">
+                                <asp:Button ID="btnAdd" runat="server" onclick="btnAdd_Click" Text="添加数据" 
+                                    ValidationGroup="vg1" />
+                                <asp:Label ID="lblMsg" runat="server"></asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    
+    </div>
+    </form>
+</body>
+</html>
