@@ -21,11 +21,11 @@
                     <table align="left" border="0" cellpadding="0" cellspacing="0" width="640" style="height: 89px">
                         <tr>
                             <td>
-                                <img alt="" border="0" name="newsCenter_r2_c1" src="../img/nba-icon.png" style="width: 50px; height: 80px; margin-top: 0px;" /></td>
+                                <img alt="" border="0" name="nba" src="../img/nba-icon.png" style="width: 50px; height: 100%; margin-top: 0px;" /></td>
                             <td>
                                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="width: 600px">
                                     <tr>
-                                        <td align="right" background="../images/newsCenter_r2_c2.jpg" class="nav" style="height: 45px"
+                                        <td align="right" class="nav" style="height: 45px"
                                             valign="bottom" width="600">
                                             <asp:Button ID="btnLogout" runat="server" onclick="btnLogout_Click" 
                                                 Text="注销退出" />
@@ -38,7 +38,7 @@
                 </td>
             </tr>
             <tr style="font-size: 10pt; color: #000000" >
-                  <td valign="top" align="left" background="../images/newsCenter_r4_c1.jpg" width="15%" >
+                  <td valign="top" align="left" width="15%" >
                     <asp:TreeView ID="TreeView1" runat="server">
                         <Nodes>
                             <asp:TreeNode Text="后台管理" Value="后台管理">
@@ -50,15 +50,41 @@
                                 </asp:TreeNode>
                             </asp:TreeNode>
                             <asp:TreeNode Text="数据管理" Value="数据管理">
-                                <asp:TreeNode NavigateUrl="adminTeam.aspx" Text="球队管理" Value="球队管理">
+                                <asp:TreeNode Text="球队" Value="球队">
+                                    <asp:TreeNode NavigateUrl="adminTeam.aspx" Text="球队添加" Value="球队添加">
+                                    </asp:TreeNode>
+                                    <asp:TreeNode NavigateUrl="CTeam.aspx" Text="球队管理" Value="球队管理">
+                                    </asp:TreeNode>
                                 </asp:TreeNode>
-                                <asp:TreeNode NavigateUrl="adminPlayer.aspx" Text="球员管理" Value="球员管理">
+                                <asp:TreeNode Text="球员" Value="球员">
+                                    <asp:TreeNode NavigateUrl="adminPlayer.aspx" Text="球员添加" Value="球员添加">
+                                    </asp:TreeNode>
+                                    <asp:TreeNode NavigateUrl="CPlayer.aspx" Text="球员管理" Value="球员管理">
+                                    </asp:TreeNode>
                                 </asp:TreeNode>
-                                <asp:TreeNode NavigateUrl="adminGame.aspx" Text="赛程管理" Value="赛程管理">
+                                <asp:TreeNode Text="赛程" Value="赛程">
+                                    <asp:TreeNode NavigateUrl="adminGame.aspx" Text="赛程添加" Value="赛程添加">
+                                    </asp:TreeNode>
+                                    <asp:TreeNode NavigateUrl="CGame.aspx" Text="赛程管理" Value="赛程管理">
+                                    </asp:TreeNode>
                                 </asp:TreeNode>
-                                <asp:TreeNode NavigateUrl="adminData.aspx" Text="比赛数据" Value="比赛数据">
+                                <asp:TreeNode Text="比赛数据" Value="比赛数据">
+                                    <asp:TreeNode NavigateUrl="adminData.aspx" Text="比赛数据添加" Value="比赛数据添加">
+                                    </asp:TreeNode>
+                                    <asp:TreeNode NavigateUrl="CData.aspx" Text="比赛数据管理" Value="比赛数据管理">
+                                    </asp:TreeNode>
                                 </asp:TreeNode>
-                                <asp:TreeNode NavigateUrl="adminHonour.aspx" Text="荣誉管理" Value="荣誉管理">
+                                <asp:TreeNode Text="荣誉" Value="荣誉">
+                                    <asp:TreeNode NavigateUrl="adminHonour.aspx" Text="荣誉添加" Value="荣誉添加">
+                                    </asp:TreeNode>
+                                    <asp:TreeNode NavigateUrl="CHonour.aspx" Text="荣誉管理" Value="荣誉管理">
+                                    </asp:TreeNode>
+                                </asp:TreeNode>
+                                <asp:TreeNode Text="退役" Value="退役">
+                                    <asp:TreeNode NavigateUrl="adminRetire.aspx" Text="退役添加" Value="退役添加">
+                                    </asp:TreeNode>
+                                    <asp:TreeNode NavigateUrl="CRetire.aspx" Text="退役管理" Value="退役管理">
+                                    </asp:TreeNode>
                                 </asp:TreeNode>
                             </asp:TreeNode>
                         </Nodes>

@@ -26,12 +26,11 @@
                     <table align="left" border="0" cellpadding="0" cellspacing="0" width="640">
                         <tr>
                             <td>
-                                <img alt="" border="0" name="newsCenter_r2_c1" src="../img/nba-icon.png" style="width: 50px; height: 80px" /></td>
+                                <img alt="" border="0" name="nba" src="../img/nba-icon.png" style="width: 50px; height: 100%" /></td>
                             <td>
                                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="width: 586px">
                                     <tr>
                                         <td align="right" class="nav" height="45" valign="bottom" width="600">
-                                            <img align="absMiddle" src="../img/board_mark_list.gif" />
                                             <a class="nav" href="../news.aspx">主页</a> &nbsp;&nbsp;</td>
                                     </tr>
                                 </table>

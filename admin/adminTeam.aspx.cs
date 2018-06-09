@@ -22,7 +22,6 @@ public partial class admin_adminteam : System.Web.UI.Page
         int Type = int.Parse(type.SelectedValue);
         string Coach = coach.Text.Trim();
         string addYear = addyear.Text.Trim();
-        //这里应该对用户的输入做一些长度校验和非法字符校验、防止SQL注入校验等，请自行完善
         int v_IsAdd = tiObj.Addteaminfo(teamName, Arena, Type,Coach,addYear);
         if (v_IsAdd == 0)
             lblMsg.Text = "添加球队失败！请重试！";

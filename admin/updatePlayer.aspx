@@ -1,40 +1,29 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="adminPwd.aspx.cs" Inherits="admin_adminPwd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="updatePlayer.aspx.cs" Inherits="admin_updatePlayer" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" >
 <head id="Head1" runat="server">
     <title>NBA</title>
     <link href="../style.css" rel="stylesheet" type="text/css" />
-    <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-        .style2
-        {
-            width: 114px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
-        <table border="0" cellpadding="0" cellspacing="0" width="640" align="center">
+        <table border="0" cellpadding="0" cellspacing="0" width="640" align="center" style="height: 293px">
             <tr>
                 <td style="height: 60px" colspan="2">
-                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="640">
+                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="640" style="height: 89px">
                         <tr>
                             <td>
-                                <img alt="" border="0" height="100%" name="nba" src="../img/nba-icon.png"
-                                    width="50"/></td>
+                                <img alt="" border="0" name="nba" src="../img/nba-icon.png" style="width: 50px; height: 100%; margin-top: 0px;" /></td>
                             <td>
-                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="600">
+                                <table align="left" border="0" cellpadding="0" cellspacing="0" style="width: 600px">
                                     <tr>
                                         <td align="right" class="nav" style="height: 45px"
                                             valign="bottom" width="600">
                                             <asp:Button ID="btnLogout" runat="server" onclick="btnLogout_Click" 
-                                                Text="注销退出" UseSubmitBehavior="False" />
+                                                Text="注销退出" />
                                         </td>
                                     </tr>
                                 </table>
@@ -86,67 +75,95 @@
                                     <asp:TreeNode NavigateUrl="CHonour.aspx" Text="荣誉管理" Value="荣誉管理">
                                     </asp:TreeNode>
                                 </asp:TreeNode>
-                                <asp:TreeNode Text="退役" Value="退役">
-                                    <asp:TreeNode NavigateUrl="adminRetire.aspx" Text="退役添加" Value="退役添加">
-                                    </asp:TreeNode>
-                                    <asp:TreeNode NavigateUrl="CRetire.aspx" Text="退役管理" Value="退役管理">
-                                    </asp:TreeNode>
+                                <asp:TreeNode NavigateUrl="adminRetire.aspx" Text="退役" Value="退役">
                                 </asp:TreeNode>
                             </asp:TreeNode>
                         </Nodes>
                     </asp:TreeView>
                 </td>
                 <td align="center">
-                    <table align="right" cellpadding="0" cellspacing="0" class="style1">
+                    <table class="style1">
                         <tr>
-                            <td class="style2" width="12%">
-                                旧密码</td>
+                            <td class="style2" style="text-align: right">
+                                姓名：</td>
                             <td style="text-align: left">
-                                <asp:TextBox ID="txtOldPwd" runat="server" MaxLength="10" Width="100px" 
-                                    TextMode="Password"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                                    ControlToValidate="txtOldPwd" ErrorMessage="请输旧密码！" ValidationGroup="vg1"></asp:RequiredFieldValidator>
+                                <asp:TextBox ID="txtname" 
+                        runat="server" MaxLength="20" Width="150px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="txtname" ErrorMessage="请填写姓名！"></asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2" style="text-align: right">
+                                所属球队：</td>
+                            <td style="text-align: left">
+                                <asp:DropDownList ID="ddlteamname" runat="server" DataSourceID="NBA" DataTextField="teamname" DataValueField="teamname">
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="NBA" runat="server" ConnectionString="<%$ ConnectionStrings:NBA %>" SelectCommand="SELECT [teamname] FROM [team]"></asp:SqlDataSource>
                             </td>
                         </tr>
                         <tr>
                             <td class="style2">
-                                新密码</td>
+                                身高</td>
                             <td style="text-align: left">
-                                <asp:TextBox ID="txtNewPwd1" runat="server" MaxLength="10" Width="100px" 
-                                    style="margin-left: 0px" TextMode="Password"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                                    ControlToValidate="txtNewPwd1" ErrorMessage="请输新密码!" ValidationGroup="vg1"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                                    ErrorMessage="长6~10，字母/数字/特殊字符组合" 
-                                    ValidationExpression="[-\da-zA-Z`=\\\[\];',./~!@#$%^&*()]{6,10}" 
-                                    ControlToValidate="txtNewPwd1" ValidationGroup="vg1"></asp:RegularExpressionValidator>
+                                <asp:TextBox ID="txtHeight" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="style2">
-                                重输新密码</td>
+                                体重</td>
                             <td style="text-align: left">
-                                <asp:TextBox ID="txtNewPwd2" runat="server" MaxLength="10" Width="100px" 
-                                    TextMode="Password"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
-                                    ErrorMessage="重新输入新密码!" ControlToValidate="txtNewPwd2" 
-                                    ValidationGroup="vg1"></asp:RequiredFieldValidator>
-                                <asp:CompareValidator ID="CompareValidator1" runat="server" 
-                                    ControlToCompare="txtNewPwd1" ErrorMessage="两次新密码不一致!" 
-                                    ControlToValidate="txtNewPwd2" ValidationGroup="vg1"></asp:CompareValidator>
+                                <asp:TextBox ID="txtWeight" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2">
+                                号码</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="num" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2">
+                                国籍</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="country" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2">
+                                选秀年</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="rk" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2">
+                                选秀排名</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="ra" runat="server"></asp:TextBox>
+                            </td>
+                        </tr><tr>
+                            <td class="style2">
+                                是否现役</td>
+                            <td style="text-align: left">
+                                <asp:RadioButtonList ID="isActive" runat="server">
+                                    <asp:ListItem Value="0">否</asp:ListItem>
+                                    <asp:ListItem Value="1">是</asp:ListItem>
+                                </asp:RadioButtonList>
                             </td>
                         </tr>
                         <tr>
                             <td class="style2">
                                 &nbsp;</td>
                             <td style="text-align: left">
-                                <asp:Button ID="btnChange" runat="server" onclick="btnChange_Click" 
-                                    Text="修改密码" ValidationGroup="vg1" />
+                                <asp:Button ID="btnChange" runat="server" onclick="btnChange_Click" Text="修改数据" 
+                                    ValidationGroup="vg1" />
                                 <asp:Label ID="lblMsg" runat="server"></asp:Label>
                             </td>
                         </tr>
                     </table>
-                    </td>
+                </td>
             </tr>
         </table>
     

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="adminPlayer.aspx.cs" Inherits="admin_adminPlayer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="updateData.aspx.cs" Inherits="admin_updateData" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -75,11 +75,7 @@
                                     <asp:TreeNode NavigateUrl="CHonour.aspx" Text="荣誉管理" Value="荣誉管理">
                                     </asp:TreeNode>
                                 </asp:TreeNode>
-                                <asp:TreeNode Text="退役" Value="退役">
-                                    <asp:TreeNode NavigateUrl="adminRetire.aspx" Text="退役添加" Value="退役添加">
-                                    </asp:TreeNode>
-                                    <asp:TreeNode NavigateUrl="CRetire.aspx" Text="退役管理" Value="退役管理">
-                                    </asp:TreeNode>
+                                <asp:TreeNode NavigateUrl="adminRetire.aspx" Text="退役" Value="退役">
                                 </asp:TreeNode>
                             </asp:TreeNode>
                         </Nodes>
@@ -89,79 +85,125 @@
                     <table class="style1">
                         <tr>
                             <td class="style2" style="text-align: right">
-                                姓名：</td>
+                                日期：</td>
                             <td style="text-align: left">
-                                <asp:TextBox ID="txtname" 
+                                <asp:TextBox ID="txttime" 
                         runat="server" MaxLength="20" Width="150px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                        ControlToValidate="txtname" ErrorMessage="请填写姓名！"></asp:RequiredFieldValidator>
+                        ControlToValidate="txttime" ErrorMessage="请填写日期！"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
                             <td class="style2" style="text-align: right">
-                                所属球队：</td>
+                                主场：</td>
                             <td style="text-align: left">
-                                <asp:DropDownList ID="ddlteamname" runat="server" DataSourceID="NBA" DataTextField="teamname" DataValueField="teamname">
+                                <asp:DropDownList ID="ddlhost" runat="server" DataSourceID="NBA" DataTextField="teamname" DataValueField="teamname">
                                 </asp:DropDownList>
+                                
                                 <asp:SqlDataSource ID="NBA" runat="server" ConnectionString="<%$ ConnectionStrings:NBA %>" SelectCommand="SELECT [teamname] FROM [team]"></asp:SqlDataSource>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2" style="text-align: right">
+                                球员：</td>
+                            <td style="text-align: left">
+                                <asp:DropDownList ID="ddlplayer" runat="server" DataSourceID="SqlDataSource2" DataTextField="playername" DataValueField="playername">
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:NBA %>" SelectCommand="SELECT [playername] FROM [player] ORDER BY [playername]"></asp:SqlDataSource>
                             </td>
                         </tr>
                         <tr>
                             <td class="style2">
-                                身高</td>
+                                上场时间</td>
                             <td style="text-align: left">
-                                <asp:TextBox ID="txtHeight" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="playingtime" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="style2">
-                                体重</td>
+                                得分</td>
                             <td style="text-align: left">
-                                <asp:TextBox ID="txtWeight" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="score" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="style2">
-                                号码</td>
+                                篮板</td>
                             <td style="text-align: left">
-                                <asp:TextBox ID="num" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="rebound" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="style2">
-                                国籍</td>
+                                助攻</td>
                             <td style="text-align: left">
-                                <asp:TextBox ID="country" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="assist" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="style2">
-                                选秀年</td>
+                                盖帽</td>
                             <td style="text-align: left">
-                                <asp:TextBox ID="rk" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="cap" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="style2">
-                                选秀排名</td>
+                                抢断</td>
                             <td style="text-align: left">
-                                <asp:TextBox ID="ra" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="steal" runat="server"></asp:TextBox>
                             </td>
                         </tr><tr>
                             <td class="style2">
-                                是否现役</td>
+                                命中</td>
                             <td style="text-align: left">
-                                <asp:RadioButtonList ID="isActive" runat="server">
-                                    <asp:ListItem Value="0">否</asp:ListItem>
-                                    <asp:ListItem Value="1">是</asp:ListItem>
-                                </asp:RadioButtonList>
+                                <asp:TextBox ID="hit" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2">
+                                出手</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="shot" runat="server"></asp:TextBox>
+                            </td>
+                        </tr><tr>
+                            <td class="style2">
+                                三分命中</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="thit" runat="server"></asp:TextBox>
+                            </td>
+                        </tr><tr>
+                            <td class="style2">
+                                三分出手</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="tshot" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="style2">
+                                罚球命中</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="freehit" runat="server"></asp:TextBox>
+                            </td>
+                        </tr><tr>
+                            <td class="style2">
+                                罚球出手</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="freeshot" runat="server"></asp:TextBox>
+                            </td>
+                        </tr><tr>
+                            <td class="style2">
+                                犯规</td>
+                            <td style="text-align: left">
+                                <asp:TextBox ID="foul" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="style2">
                                 &nbsp;</td>
                             <td style="text-align: left">
-                                <asp:Button ID="btnAdd" runat="server" onclick="btnAdd_Click" Text="添加数据" 
+                                <asp:Button ID="btnChange" runat="server" onclick="btnChange_Click" Text="修改数据" 
                                     ValidationGroup="vg1" />
                                 <asp:Label ID="lblMsg" runat="server"></asp:Label>
                             </td>

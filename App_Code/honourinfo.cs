@@ -31,4 +31,29 @@ public class honourinfo
         dbObj.Close();
         return flag;
     }
+
+    public int Updatehonourinfo(int honouryear, int playerid, Boolean regularseasonmvp, Boolean playoffmvp, Boolean dpoy, int allstar, int bestlineup, int bestdefensivelineup)
+    {
+        //连接存储过程
+        SqlCommand cmd = dbObj.ChangeProcToCmd("pr_updatehonour");
+        //传参
+        cmd.Parameters.AddWithValue("@honouryear", honouryear);
+        cmd.Parameters.AddWithValue("@playerid", playerid);
+        cmd.Parameters.AddWithValue("@regularseasonmvp", regularseasonmvp);
+        cmd.Parameters.AddWithValue("@playoffmvp", playoffmvp);
+        cmd.Parameters.AddWithValue("@dpoy", dpoy);
+        cmd.Parameters.AddWithValue("@allstar", allstar);
+        cmd.Parameters.AddWithValue("@bestlineup", bestlineup);
+        cmd.Parameters.AddWithValue("@bestdefensivelineup", bestdefensivelineup);
+        //执行
+        int flag = cmd.ExecuteNonQuery();
+        dbObj.Close();
+        return flag;
+    }
+
+    public DataTable getInfobyYearid(int year,int id)
+    {
+        string cmdText = "select * from honour where honouryear =" + year + "and playerid =" + id;
+        return dbObj.RunSQLtoDataTable(cmdText);
+    }
 }

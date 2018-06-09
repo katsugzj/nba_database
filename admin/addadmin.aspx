@@ -26,13 +26,13 @@
                     <table align="left" border="0" cellpadding="0" cellspacing="0" width="640">
                         <tr>
                             <td>
-                                <img alt="" border="0" name="newsCenter_r2_c1" src="../img/nba-icon.png" style="width: 50px; height: 80px" /></td>
+                                <img alt="" border="0" name="nba" src="../img/nba-icon.png" style="width: 50px; height: 100%" /></td>
                             <td>
                                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="width: 586px">
                                     <tr>
                                         <td align="right" class="nav" height="45" valign="bottom" width="600">
-                                            <img align="absMiddle" src="../img/board_mark_list.gif" />
                                             <a class="nav" href="../news.aspx">主页</a> &nbsp;&nbsp;</td>
+                                            <a class="nav" href="adminIndex.aspx">返回</a> &nbsp;&nbsp;</td>
                                     </tr>
                                 </table>
                             </td>
@@ -77,8 +77,8 @@
                             <td class="style2">
                                 &nbsp;</td>
                             <td style="text-align: left">
-                    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="注册" />
-                    <asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label>
+                                <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="注册" />
+                                <asp:Label ID="lblMsg" runat="server" ForeColor="Red"></asp:Label>
                             </td>
                         </tr>
                     </table>

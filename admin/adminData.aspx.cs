@@ -15,6 +15,27 @@ public partial class admin_adminData : System.Web.UI.Page
     {
         if (Session["admin"] == null)
             Response.Redirect("adminLogin.aspx");
+        if (!IsPostBack)
+        {
+            Bind();
+        }
+    }
+
+    protected void Bind()
+    {
+        playingtime.Text = "0";
+        score.Text = "0";
+        rebound.Text = "0";
+        assist.Text = "0";
+        cap.Text = "0";
+        steal.Text = "0";
+        hit.Text = "0";
+        shot.Text = "0";
+        thit.Text = "0";
+        tshot.Text = "0";
+        freehit.Text = "0";
+        freeshot.Text = "0";
+        foul.Text = "0";
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
@@ -37,8 +58,6 @@ public partial class admin_adminData : System.Web.UI.Page
         int Fhit = Convert.ToInt32(freehit.Text.Trim());
         int Fshot = Convert.ToInt32(freeshot.Text.Trim());
         int Foul = Convert.ToInt32(foul.Text.Trim());
-
-        //这里应该对用户的输入做一些长度校验和非法字符校验、防止SQL注入校验等，请自行完善
         int v_IsAdd = gdiObj.Addgamedatainfo(num, playerid, playtime,Score,Rebound,Assist,Cap,Steal,Hit,Shot,Thit,Tshot,Fhit,Fshot,Foul);
         if (v_IsAdd == 0)
             lblMsg.Text = "添加数据失败！请重试！";

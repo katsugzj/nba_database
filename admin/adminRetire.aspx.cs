@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class admin_adminGame : System.Web.UI.Page
+public partial class admin_adminRetire : System.Web.UI.Page
 {
-    gameinfo giObj = new gameinfo();
+    retireinfo riObj = new retireinfo();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -17,17 +17,15 @@ public partial class admin_adminGame : System.Web.UI.Page
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-        string time = txttime.Text.Trim();
-        string host = ddlhost.SelectedValue;
-        string visitor = ddlvisitor.SelectedValue;
-        int type = int.Parse(ddltype.SelectedValue);
-        int v_IsAdd = giObj.AddGameInfo(time, host, visitor, type);
+        int Year = Convert.ToInt32(year.Text.Trim());
+        string team = ddlteam.SelectedValue;
+        int id = Convert.ToInt32(number.Text.Trim());
+        int v_IsAdd = riObj.Addretireinfo(Year,team,id);
         if (v_IsAdd == 0)
-            lblMsg.Text = "添加比赛失败！请重试！";
+            lblMsg.Text = "添加失败！请重试！";
         else
         {
-            lblMsg.Text = "添加比赛成功，可继续添加！";
-            txttime.Text = "";
+            lblMsg.Text = "添加成功，可继续添加！";
         }
 
 

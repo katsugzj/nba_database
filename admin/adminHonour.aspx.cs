@@ -14,6 +14,20 @@ public partial class admin_adminHonour : System.Web.UI.Page
     {
         if (Session["admin"] == null)
             Response.Redirect("adminLogin.aspx");
+        if (!IsPostBack)
+        {
+            Bind();
+        }
+    }
+
+    protected void Bind()
+    {
+        mvp.SelectedIndex = 0;
+        playoffmvp.SelectedIndex = 0;
+        DPOY.SelectedIndex = 0;
+        allstar.SelectedIndex = 3;
+        bestline.SelectedIndex = 3;
+        bdline.SelectedIndex = 2;
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
@@ -27,13 +41,12 @@ public partial class admin_adminHonour : System.Web.UI.Page
         int allStar = allstar.SelectedIndex;
         int Bline = bestline.SelectedIndex;
         int BDline = bdline.SelectedIndex;
-        //这里应该对用户的输入做一些长度校验和非法字符校验、防止SQL注入校验等，请自行完善
         int v_IsAdd = hiObj.Addhonourinfo(Year, id, Mvp, playoffMvp, Dpoy, allStar, Bline, BDline);
         if (v_IsAdd == 0)
-            lblMsg.Text = "添加球员失败！请重试！";
+            lblMsg.Text = "添加失败！请重试！";
         else
         {
-            lblMsg.Text = "添加球员成功，可继续添加！";
+            lblMsg.Text = "添加成功，可继续添加！";
         }
 
 

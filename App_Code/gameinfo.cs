@@ -29,11 +29,32 @@ public class gameinfo
         return flag;
     }
 
+    public int UpdateGameInfo(string gametime, string host, string visitor, int gametype)
+    {
+        //连接存储过程
+        SqlCommand cmd = dbObj.ChangeProcToCmd("pr_updategame");
+        //传参
+        cmd.Parameters.AddWithValue("@gametime", gametime);
+        cmd.Parameters.AddWithValue("@host", host);
+        cmd.Parameters.AddWithValue("@visitor", visitor);
+        cmd.Parameters.AddWithValue("@gametype", gametype);
+        //执行
+        int flag = cmd.ExecuteNonQuery();
+        dbObj.Close();
+        return flag;
+    }
+
     public int getGameNum(string date, string host)
     {
         string cmdText = "select id from game where gametime = " + date + "and host = '" + host + "'";
         int id = dbObj.RunSQLtoInt(cmdText);
 
         return id;
+    }
+
+    public DataTable getInfobyId(int id)
+    {
+        string cmdText = "select * from game where id = " + id;
+        return dbObj.RunSQLtoDataTable(cmdText);
     }
 }
