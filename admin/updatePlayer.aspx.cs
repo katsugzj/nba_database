@@ -33,6 +33,7 @@ public partial class admin_updatePlayer : System.Web.UI.Page
         country.Text = dt.Rows[0][6].ToString();
         rk.Text = dt.Rows[0][7].ToString();
         ra.Text = dt.Rows[0][8].ToString();
+        isActive.SelectedIndex = Convert.ToInt32(dt.Rows[0][9]);
     }
 
     protected void btnLogout_Click(object sender, EventArgs e)

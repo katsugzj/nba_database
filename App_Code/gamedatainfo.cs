@@ -70,4 +70,10 @@ public class gamedatainfo
         string cmdText = "select * from gamedata where gameid = " + gameid + "and playerid = " + playerid;
         return dbObj.RunSQLtoDataTable(cmdText);
     }
+
+    public DataTable getScore(string time,string team)
+    {
+        string cmdText = "DECLARE	@return_value int EXEC @return_value = [dbo].[gamescore] '"+time+"','"+team+"'";
+        return dbObj.RunSQLtoDataTable(cmdText);
+    }
 }

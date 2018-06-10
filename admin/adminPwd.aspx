@@ -26,8 +26,8 @@
                     <table align="left" border="0" cellpadding="0" cellspacing="0" width="640">
                         <tr>
                             <td>
-                                <img alt="" border="0" height="100%" name="nba" src="../img/nba-icon.png"
-                                    width="50"/></td>
+                                <img alt="" border="0" height="141px" name="nba" src="../img/nba-icon.png"
+                                    width="61"/></td>
                             <td>
                                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="600">
                                     <tr>

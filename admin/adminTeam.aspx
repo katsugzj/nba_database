@@ -21,7 +21,7 @@
                     <table align="left" border="0" cellpadding="0" cellspacing="0" width="640" style="height: 89px">
                         <tr>
                             <td>
-                                <img alt="" border="0" name="nba" src="../img/nba-icon.png" style="width: 50px; height: 100%; margin-top: 0px;" /></td>
+                                <img alt="" border="0" name="nba" src="../img/nba-icon.png" style="width: 61px; height: 141px; margin-top: 0px;" /></td>
                             <td>
                                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="width: 600px">
                                     <tr>
