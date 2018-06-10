@@ -26,10 +26,18 @@ public partial class admin_adminPlayer : System.Web.UI.Page
         string rookie = rk.Text.Trim();
         string rank = ra.Text.Trim();
         int active = isActive.SelectedIndex;
-        int v_IsAdd = piObj.Addplayerinfo(name,height, weight,team,Convert.ToInt32(no), nation,Convert.ToInt32(rookie), Convert.ToInt32(rank), Convert.ToBoolean(active));
+        int v_IsAdd;
+        try
+        {
+            v_IsAdd = piObj.Addplayerinfo(name, height, weight, team, Convert.ToInt32(no), nation, Convert.ToInt32(rookie), Convert.ToInt32(rank), Convert.ToBoolean(active));
+        }
+        catch
+        {
+            v_IsAdd = 2;
+        }
         if (v_IsAdd == 0)
             lblMsg.Text = "添加球员失败！请重试！";
-        else
+        else if (v_IsAdd == 1)
         {
             lblMsg.Text = "添加球员成功，可继续添加！";
             txtname.Text = "";
@@ -40,6 +48,7 @@ public partial class admin_adminPlayer : System.Web.UI.Page
             rk.Text = "";
             ra.Text = "";
         }
+        else lblMsg.Text = "添加球员失败！该号码已退役！";
 
 
 
