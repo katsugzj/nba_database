@@ -14,12 +14,12 @@ public partial class playerview : System.Web.UI.Page
         {
             SqlDataSource1.SelectCommand = "SELECT * FROM [player] where id = " + id;
             GridView1.DataBind();
-            SqlDataSource2.SelectCommand = "select * from gamedata join player on playerid = id where playerid =" + id;
+            SqlDataSource2.SelectCommand = "select * from gamedata,player,game where playerid = player.id and game.id = gameid and playerid =" + id;
             GridView2.DataBind();
         }
         else
         {
-            SqlDataSource2.SelectCommand = "select * from gamedata join player on playerid = id where playerid = 0";
+            SqlDataSource2.SelectCommand = "select * from gamedata,player,game where playerid = player.id and game.id = gameid";
             GridView2.DataBind();
         }
     }

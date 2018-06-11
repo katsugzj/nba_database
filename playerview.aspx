@@ -58,9 +58,14 @@
                       <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:NBA %>" SelectCommand="SELECT [playername], id,[playerheight], [playerweight], [team], [number], [nationality], [rookieyear], [rookierank], [active] FROM [player] ORDER BY [playername]"></asp:SqlDataSource>
                       <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource2" Width="100%" AllowPaging="True" DataKeyNames="gameid,playerid,id">
                           <Columns>
-                              <asp:HyperLinkField DataNavigateUrlFields="team" HeaderText="队名" SortExpression="team" DataTextField="team" DataNavigateUrlFormatString="team.aspx?team={0}"/>
+                              <asp:HyperLinkField DataNavigateUrlFields="gameid" HeaderText="比赛时间" SortExpression="gametime" DataTextField="gametime" DataNavigateUrlFormatString="gamedataview.aspx?id={0}"/>
+                              <asp:HyperLinkField DataNavigateUrlFields="team" HeaderText="队名" SortExpression="team" DataTextField="team" DataNavigateUrlFormatString="team.aspx?team={0}">
+                              <ItemStyle HorizontalAlign="Center" Width="90px" />
+                              </asp:HyperLinkField>
                               <asp:BoundField DataField="number" HeaderText="号码" SortExpression="number" />
-                              <asp:HyperLinkField DataNavigateUrlFields="playerid" HeaderText="球员" SortExpression="playername" DataTextField="playername" DataNavigateUrlFormatString="playerview.aspx?playerid={0}"/>
+                              <asp:HyperLinkField DataNavigateUrlFields="playerid" HeaderText="球员" SortExpression="playername" DataTextField="playername" DataNavigateUrlFormatString="playerview.aspx?playerid={0}">
+                              <ItemStyle HorizontalAlign="Center" Width="100px" />
+                              </asp:HyperLinkField>
                               <asp:BoundField DataField="playingtime" HeaderText="上场时间" SortExpression="playingtime" />
                               <asp:BoundField DataField="score" HeaderText="得分" SortExpression="score" />
                               <asp:BoundField DataField="rebound" HeaderText="篮板" SortExpression="rebound" />
@@ -76,7 +81,7 @@
                               <asp:BoundField DataField="foul" HeaderText="犯规" SortExpression="foul" />
                           </Columns>
                       </asp:GridView>
-                      <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:NBA %>" SelectCommand="select * from gamedata join player on playerid = id "></asp:SqlDataSource>
+                      <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:NBA %>" SelectCommand="select * from gamedata,player,game where playerid = player.id and game.id = gameid "></asp:SqlDataSource>
                   </td>
             </tr>
         </table>
